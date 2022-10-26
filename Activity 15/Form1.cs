@@ -53,25 +53,31 @@ namespace Activity_15
             monthprompt.SelectedIndex = 0;
             dayPrompt.SelectedIndex = 0;
             colorPrompt.SelectedIndex = 0;
+
+            // do not load selected index handler until element has loaded
             monthprompt.SelectedIndexChanged += new System.EventHandler(monthprompt_SelectedIndexChanged);
         }
 
         private void GetNumber_Click(object sender, EventArgs e)
         {
-            // calculate lucky number
+            // calculate lucky number by index
             int luckyNumber = (yearPrompt.SelectedIndex 
                 + monthprompt.SelectedIndex
                 + dayPrompt.SelectedIndex
                 + colorPrompt.SelectedIndex)
+                // return output from 1 to 100
                 % 100 + 1;
-            //MessageBox.Show(luckyNumber.ToString());
+
+            // instantiate and show result form
             ResultForm resultForm = new ResultForm(luckyNumber);
             resultForm.ShowDialog();
         }
 
         private void monthprompt_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int days = daysInMonth[monthprompt.SelectedIndex ];
+            int days = daysInMonth[monthprompt.SelectedIndex];
+
+            // update days to reflect the number of days in each month
             dayPrompt.Items.Clear();
             for (int i = 1; i <= days; i++)
             {

@@ -63,7 +63,6 @@
             this.monthprompt.Name = "monthprompt";
             this.monthprompt.Size = new System.Drawing.Size(161, 24);
             this.monthprompt.TabIndex = 4;
-            //this.monthprompt.SelectedIndexChanged += new System.EventHandler(this.monthprompt_SelectedIndexChanged);
             // 
             // label2
             // 
